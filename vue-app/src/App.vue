@@ -1,32 +1,79 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <!-- header (favorite button & logo) -->
+    <div class="favorite-container">
+      <router-link to="/">
+        <div class="logo">
+          <img src="@/assets/youtube_logo1.png" height="80" alt="" /></div
+      ></router-link>
+
+      <span @click="goFavorite" class="favorite">Favorite</span>
     </div>
-    <router-view/>
+
+    <router-view></router-view>
   </div>
 </template>
 
-<style>
+<script>
+export default {
+  name: "App",
+  methods: {
+    // go to favorite screen with using "router in js" approach
+    goFavorite() {
+      let user_id = "bootcamp";
+      this.$router.push({ path: `/favorite/${user_id}` });
+    },
+  },
+  beforeCreate() {
+    // change background of the body
+    document
+      .querySelector("body")
+      .setAttribute("style", "background-color:#181818;");
+  },
+};
+</script>
+
+<style scoped>
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 10px 0 0 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  margin: 0;
+  color: #f5f5f5;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-#nav {
-  padding: 30px;
+.favorite-container {
+  height: 50px;
+  margin: 0% 10vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffffff;
+  border-radius: 10px;
 }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+.logo {
+  cursor: pointer;
 }
 
-#nav a.router-link-exact-active {
-  color: #42b983;
+.favorite {
+  cursor: pointer;
+  padding: 10px 20px;
+  font-size: 1.3rem;
+  border-radius: 10px;
+  background-color: aliceblue;
+
+  color: #181818;
 }
 </style>
