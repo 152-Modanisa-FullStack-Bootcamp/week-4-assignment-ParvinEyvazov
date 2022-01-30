@@ -1,3 +1,3 @@
-# Feature: Sanity
-#     Scenario: Sanity
-#         Given Sanity
+Feature: Sanity
+    Scenario: Sanity
+        Given Sanity

@@ -1,4 +1,6 @@
-const {Given} = require("cucumber");
+const { Given } = require("cucumber");
+const assert = require("assert");
+
 Given(/^Sanity$/, function () {
-    console.log("selam")
+  assert.equal(true, true);
 });
