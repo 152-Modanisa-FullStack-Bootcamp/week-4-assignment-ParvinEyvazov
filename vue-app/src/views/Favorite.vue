@@ -21,6 +21,7 @@ export default {
   async mounted() {
     // fetch video data
     const { data } = await getVideos();
+    console.log(`data`, data);
     this.videos = data;
   },
 };
