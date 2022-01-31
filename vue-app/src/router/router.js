@@ -13,6 +13,7 @@ const router = new VueRouter({
     { path: "/favorite/:user_id", component: FavoritePage },
     { path: "/watch", component: WatchPage },
   ],
+  base: process.env.BASE_URL,
 });
 
 export default router;

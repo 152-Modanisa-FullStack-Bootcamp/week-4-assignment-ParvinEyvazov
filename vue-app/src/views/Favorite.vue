@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import { getVideos } from "@/service/api";
 import FavoriteVideo from "@/components/FavoriteVideo";
+import API from "@/service/api";
 
 export default {
   name: "FavoritePage",
@@ -20,8 +20,7 @@ export default {
   },
   async mounted() {
     // fetch video data
-    const { data } = await getVideos();
-    console.log(`data`, data);
+    const { data } = await API.getVideos();
     this.videos = data;
   },
 };

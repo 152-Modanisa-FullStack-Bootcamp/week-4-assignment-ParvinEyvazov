@@ -10,7 +10,7 @@
 
 <script>
 import RecommendedVideo from "@/components/RecommendedVideo";
-import { getVideos } from "@/service/api";
+import API from "@/service/api";
 
 export default {
   name: "MainPage",
@@ -22,7 +22,7 @@ export default {
   },
   async mounted() {
     // fetch video data
-    const { data } = await getVideos();
+    const { data } = await API.getVideos();
     this.videos = data;
   },
 };
